@@ -1,3 +1,45 @@
+#Pat Notes from Class:
+No nested loop
+
+In view, generic function that can either return array of numbers or graph.
+--Signature of Function = Name, set of parameters, return value. Generic functions have the same signature.
+
+
+Step 1: create skeleton of class
+
+  a: Create a controller class that has 1 function outside world will use to interact with application
+it can say hello world.
+
+  b: Create Calculator Class
+  #worry about loop later - calculate values for month 1
+  #static function - does not need constructor because it does not need to store state
+  #create formulas
+
+Controller Class
+
+C = controller() (initialize the app)
+c.some_function_name_in_the_controller(term, interest rate, downpayment)
+c.calculate_amort_schedule
+
+Model Class 1:
+self.mortgage_month = month in months
+self.payment
+self.intrest_component
+self.principal_component
+self.cumulative_interest
+self.cumulative_payment
+self.principal_balance
+
+Model Class 2: Amortization Schedule, Mortgage level metrics
+self.amoritization_schedule = array_of_objects_per_month
+self.total_payments_in_mortgage (1 element - calculated at terminus of mortgage)
+  for monthly_object in amoritization_Schedule:
+            sum some shit
+
+
+#Dont need dictionary - just need an index for this list[0] is a quick way to look up an element
+
+
 # Mortgage Calculator
 
 ### Objective
@@ -59,7 +101,7 @@ Where
 
 ### Guidelines
 This problem is best approached by breaking it into separate components(classes) where each class handles a specific part of the solution. As such you should follow the model view controller (MVC) pattern to split up your code into various pieces
- 
+
 #### Model classes
 These would be the objects that hold the data. There will be instances of these classes that are passed to or returned by methods of the calculator class. Specific possibilities for this project would be
  * MonthlyDetails
@@ -77,8 +119,7 @@ You should a View class that handles the job of taking in data and either printi
 
 
 #### A Calculator class
-This class should expose methods that implement all of the calculations needed for this project. Its methods should take in the inputs needed for the calculation and should return back the results of the calculation in model objects. This class as such should not hold any state, in that it simply exposes methods that take in inputs to a formula, runs them through the formula and return back the result. It should not need to store anything across calls. 
+This class should expose methods that implement all of the calculations needed for this project. Its methods should take in the inputs needed for the calculation and should return back the results of the calculation in model objects. This class as such should not hold any state, in that it simply exposes methods that take in inputs to a formula, runs them through the formula and return back the result. It should not need to store anything across calls.
 The methods of the Calculator class should be called from the Controller given that it is the orchestrator for the project.
- 
-> This class will be required to expose a given set of functions which should perform that various calculations required. **A test class will be provided which will make calls to a set of functions on the Calculator class and will check the results returned. You should look at the test cases to know what functions on the Calculator class you need to expose and implement.**
 
+> This class will be required to expose a given set of functions which should perform that various calculations required. **A test class will be provided which will make calls to a set of functions on the Calculator class and will check the results returned. You should look at the test cases to know what functions on the Calculator class you need to expose and implement.**

@@ -1,28 +1,17 @@
-from calculator import Calculator
-from view.print_view import PrintView
-from view.graph_view import GraphView
+from calculator import *
+from model import *
+#from view.print_view import PrintView
+#from view.graph_view import GraphView
 
 
-class Controller(object):
+class Controller:
     """The Controller class for the mortgage calculator"""
 
     def __init__(self):
-        super(Controller, self).__init__()
-        # self.view = GraphView()
-        self.view = PrintView()
+        self.calculator = Mortgage_Calculator()
 
-    def calculate_mortgage_schedule(self):
-        # These could be obtained from user input by the view
-        principal = 200000
-        rate = 6.5
-        term = 30
-
-        # Run the calculation
-        schedule = Calculator.calculate_schedule(principal, rate, term)
-
-        # Display it
-        self.view.display_schedule(schedule)
-
+    def calculate_mortgage_schedule(self, principal, annual_interest_rate, term_in_years):
+        self.calculator.calculate(principal, annual_interest_rate, term_in_years)
 
 controller = Controller()
-controller.calculate_mortgage_schedule()
+controller.calculate_mortgage_schedule(200000, 6.5, 30)
