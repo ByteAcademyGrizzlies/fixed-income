@@ -1,17 +1,16 @@
 from calculator import *
 from model import *
-#from view.print_view import PrintView
-#from view.graph_view import GraphView
-
+from patview import *
 
 class Controller:
     """The Controller class for the mortgage calculator"""
 
     def __init__(self):
-        self.calculator = Mortgage_Calculator()
+        pass
 
     def calculate_mortgage_schedule(self, principal, annual_interest_rate, term_in_years):
-        self.calculator.calculate(principal, annual_interest_rate, term_in_years)
+        mortgage_metric_holder = Mortgage_Calculator.calculate(principal, annual_interest_rate, term_in_years)
+        plotter.print_advanced(mortgage_metric_holder)
 
 controller = Controller()
 controller.calculate_mortgage_schedule(200000, 6.5, 30)
