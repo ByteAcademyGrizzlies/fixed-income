@@ -9,6 +9,7 @@ class Monthly_Mortgage_Details:
         self.principal_component = None
         self.cumulative_interest = None
         self.cumulative_principal = None
+        self.cumulative_payment = None
         self.principal_balance = None
 
 class Mortgage_Level_Metrics:

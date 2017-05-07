@@ -13,4 +13,4 @@ class Controller:
         plotter.print_advanced(mortgage_metric_holder)
 
 controller = Controller()
-controller.calculate_mortgage_schedule(200000, 6.5, 30)
+controller.calculate_mortgage_schedule(100000, 7.5, 30)
