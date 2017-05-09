@@ -4,7 +4,16 @@ class plotter:
         pass
 
     def print_basic(mortgage_metric_holder):
-        print(mortgage_metric_holder.total_payments_in_mortgage)
+        for month in mortgage_metric_holder.amoritization_schedule:
+            if month.current_month < 5:
+                print("monthly mortgage payment", month.monthly_mortgage_payment)
+                print("current month", month.current_month)
+                print("interest component", month.interest_component)
+                print("principal component", month.principal_component)
+                print("cumulative payment", month.cumulative_payment)
+                print("cumulative interestt", month.cumulative_interest)
+                print("cum principal", month.cumulative_principal)
+                print("loan balance", month.principal_balance)
 
     def print_advanced(mortgage_metric_holder):
         list_of_months = []

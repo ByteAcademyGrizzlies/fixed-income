@@ -21,7 +21,7 @@ class Mortgage_Calculator:
             holder.cumulative_interest = Mortgage_Calculator.calculate_cumulative_interest(holder.interest_component, holder.current_month)
             holder.cumulative_principal = Mortgage_Calculator.calculate_cumulative_principal(holder.principal_component, holder.current_month)
             holder.cumulative_payment = Mortgage_Calculator.calculate_cumulative_payment(holder.monthly_mortgage_payment, holder.current_month)
-            holder.principal_balance = Mortgage_Calculator.calculate_principal_balance(principal, holder.monthly_mortgage_payment, holder.current_month)
+            holder.principal_balance = Mortgage_Calculator.calculate_principal_balance(principal, holder.principal_component, holder.current_month)
             object_array.append(holder)
         #create new instance of mortgage_level_metrics object
         mortgage_metric_holder = Mortgage_Level_Metrics()
@@ -30,6 +30,10 @@ class Mortgage_Calculator:
         #set a field in this instance equal to object arrray returned above
         mortgage_metric_holder.amoritization_schedule = object_array
         return mortgage_metric_holder
+
+        ##http://www.calculator.net/amortization-calculator.html?cloanamount=100000&cloanterm=30&cinterestrate=7.5&printit=0&x=71&y=18
+        #need to refactor so that interest component calculation uses outstanding principal going into month
+        #so for month 1, the outstanding balance = principal
 
     def calculate_mortgage_term(term_in_years):
         return term_in_years * 12
@@ -56,8 +60,8 @@ class Mortgage_Calculator:
     def calculate_cumulative_principal(principal_component, current_month):
         return principal_component * current_month
 
-    def calculate_principal_balance(principal, monthly_mortgage_payment, current_month):
-        return principal - (monthly_mortgage_payment * current_month)
+    def calculate_principal_balance(principal, principal_component, current_month):
+        return principal - (principal_component * current_month)
 
     def calculate_cumulative_payment(monthly_mortgage_payment, current_month):
         return monthly_mortgage_payment * current_month
