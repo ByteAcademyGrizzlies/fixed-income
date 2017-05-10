@@ -1,21 +1,26 @@
 import matplotlib.pyplot as plt
-class plotter:
-    def __init__():
+from patbaseview import *
+
+class Plotter_array(base_view):
+    def __init__(self):
         pass
 
-    def print_basic(mortgage_metric_holder):
+    def printshit(self, mortgage_metric_holder):
         for month in mortgage_metric_holder.amoritization_schedule:
-            if month.current_month < 5:
-                print("monthly mortgage payment", month.monthly_mortgage_payment)
-                print("current month", month.current_month)
-                print("interest component", month.interest_component)
-                print("principal component", month.principal_component)
-                print("cumulative payment", month.cumulative_payment)
-                print("cumulative interestt", month.cumulative_interest)
-                print("cum principal", month.cumulative_principal)
-                print("loan balance", month.principal_balance)
+            print("monthly mortgage payment", month.monthly_mortgage_payment)
+            print("current month", month.current_month)
+            print("interest component", month.interest_component)
+            print("principal component", month.principal_component)
+            print("cumulative payment", month.cumulative_payment)
+            print("cumulative interest", month.cumulative_interest)
+            print("cumulative principal", month.cumulative_principal)
+            print("loan balance", month.principal_balance)
 
-    def print_advanced(mortgage_metric_holder):
+class Plotter_graph(base_view):
+    def __init__(self):
+        pass
+
+    def printshit(self, mortgage_metric_holder):
         list_of_months = []
         cumulative_payment = []
         cumulative_principal = []
@@ -33,7 +38,7 @@ class plotter:
         plt.plot(list_of_months, cumulative_principal)
         plt.plot(list_of_months, outstanding_principal)
         plt.xlabel("Month")
-        plt.ylabel("Many a thing")
+        plt.ylabel("Something Measured in Cash")
         plt.title("pat just printed some shit")
         plt.grid(True)
         plt.axis([0, 360, -100000, 200000])

@@ -90,7 +90,7 @@ Where
 ```
 
 #### To Calculate the Interest Component of a monthly payment
-```
+
 i = P * r
 
 Where
