@@ -30,3 +30,15 @@ def cumulative_growth(start_val, end_val):
 def calc_yield(start_val, end_val, term):
 	yld = annualized_growth(term, cumulative_growth(start_val, end_val))
 	return yld
+
+def bond_pv(principal, coupon, term, yld):
+	present_value = 0
+	for i in range(1 ,term):
+		#print("i ", i)
+		#print("discounted coupon ", coupon / (1 + yld/100) ** i)
+		present_value += coupon / (1 + yld/100) ** i
+		#print("new present val ", present_value)
+
+	present_value += (principal + coupon) / (1 + yld/100) ** term
+
+	return present_value
