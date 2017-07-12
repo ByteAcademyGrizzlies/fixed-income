@@ -32,6 +32,10 @@ def calc_yield(start_val, end_val, term):
 	return yld
 
 def bond_pv(principal, coupon, term, yld):
+	#this function assumes:
+	#coupon is a dollar amount (not a rate) 
+	#yld is a percentage (not a decimal)
+
 	present_value = 0
 	for i in range(1 ,term):
 		#print("i ", i)
